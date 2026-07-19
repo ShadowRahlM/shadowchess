@@ -92,6 +92,31 @@ export default function Board() {
   const [explorerSource, setExplorerSource] = useState('lichess');
   const [explorerPlayerName, setExplorerPlayerName] = useState('');
   const [recentGames, setRecentGames] = useState([]);
+  var ls = function(key, def) {
+    try { var v = localStorage.getItem('sc_' + key); return v != null ? JSON.parse(v) : def; } catch(e) { return def; }
+  };
+  var lss = function(key, val) {
+    try { localStorage.setItem('sc_' + key, JSON.stringify(val)); } catch(e) {}
+  };
+  const [engineThreads, setEngineThreads] = useState(ls('threads', 2));
+  const [engineHash, setEngineHash] = useState(ls('hash', 128));
+  const [engineMoveTime, setEngineMoveTime] = useState(ls('movetime', 8000));
+
+  // Persist engine settings
+  useEffect(function() {
+    lss('depth', depth);
+    lss('threads', engineThreads);
+    lss('hash', engineHash);
+    lss('movetime', engineMoveTime);
+  }, [depth, engineThreads, engineHash, engineMoveTime]);
+
+  // Send setoption to engine when Threads/Hash change
+  useEffect(function() {
+    if (engineReady) {
+      sendEngine({ type: 'setoption', name: 'Threads', value: engineThreads });
+      sendEngine({ type: 'setoption', name: 'Hash', value: engineHash });
+    }
+  }, [engineThreads, engineHash, engineReady]);
 
   function toggleSound() {
     const next = !soundOn;
@@ -208,7 +233,7 @@ export default function Board() {
     }
     sendEngine({ type: 'stop' });
     sendEngine({ type: 'position', fen: fen });
-    engineGo({ depth: depth, movetime: Math.min(depth * 500, 8000) });
+    engineGo({ depth: depth, movetime: engineMoveTime });
   }, [viewingIdx]);
 
   // Keyboard navigation
@@ -314,7 +339,7 @@ export default function Board() {
               }
               sendEngine({ type: 'stop' });
               sendEngine({ type: 'position', fen: gameRef.current.fen() });
-              engineGo({ depth: depth, movetime: Math.min(depth * 500, 8000) });
+              engineGo({ depth: depth, movetime: engineMoveTime });
               setTimeout(function() { setThinking(function(t) { if (t) { sendEngine({ type: 'stop' }); return false; } return t; }); }, Math.min(depth * 1000, 15000));
             }
           } catch(e) { setPremove(null); }
@@ -323,7 +348,7 @@ export default function Board() {
           setTimeout(function() {
             var fen = gameRef.current.fen();
             sendEngine({ type: 'position', fen: fen });
-            engineGo({ depth: depth, movetime: Math.min(depth * 500, 8000) });
+            engineGo({ depth: depth, movetime: engineMoveTime });
           }, 100);
         }
       }
@@ -365,8 +390,8 @@ export default function Board() {
         setUseWasm(false);
       };
       worker.postMessage('uci');
-      worker.postMessage('setoption name Threads value 2');
-      worker.postMessage('setoption name Hash value 128');
+      worker.postMessage('setoption name Threads value ' + engineThreads);
+      worker.postMessage('setoption name Hash value ' + engineHash);
       worker.postMessage('isready');
       // Queue commands sent before ready
       wasmRef.current = {
@@ -666,7 +691,7 @@ export default function Board() {
         // Send position to engine, stop first if still thinking
         if (thinking) sendEngine({ type: 'stop' });
         sendEngine({ type: 'position', fen: game.fen() });
-        engineGo({ depth: depth, movetime: Math.min(depth * 500, 8000) });
+        engineGo({ depth: depth, movetime: engineMoveTime });
         // Safety timeout: reset thinking if engine doesn't respond in time
         setTimeout(function() {
           setThinking(function(t) { if (t) { sendEngine({ type: 'stop' }); return false; } return t; });
@@ -711,7 +736,7 @@ export default function Board() {
       if (analyzingRef.current) {
         engineGo({ depth: depth, infinite: true });
       } else {
-        engineGo({ depth: depth, movetime: Math.min(depth * 500, 8000) });
+        engineGo({ depth: depth, movetime: engineMoveTime });
       }
       setTimeout(function() {
         setThinking(function(t) { if (t) { sendEngine({ type: 'stop' }); return false; } return t; });
@@ -832,7 +857,7 @@ export default function Board() {
     if (pc === 'b') {
       setTimeout(function() {
         sendEngine({ type: 'position', fen: game.fen() });
-        engineGo({ depth: depth, movetime: Math.min(depth * 500, 8000) });
+        engineGo({ depth: depth, movetime: engineMoveTime });
         setThinking(true);
       }, 300);
     }
@@ -889,7 +914,7 @@ export default function Board() {
     // Stop any ongoing engine thinking
     if (thinking) sendEngine({ type: 'stop' });
     sendEngine({ type: 'position', fen: game.fen() });
-    engineGo({ depth: depth, movetime: Math.min(depth * 500, 8000) });
+    engineGo({ depth: depth, movetime: engineMoveTime });
   }
 
   function resign() {
@@ -1647,6 +1672,12 @@ export default function Board() {
           setMultiPv={setMultiPv}
           useWasm={useWasm}
           setUseWasm={setUseWasm}
+          engineThreads={engineThreads}
+          setEngineThreads={setEngineThreads}
+          engineHash={engineHash}
+          setEngineHash={setEngineHash}
+          engineMoveTime={engineMoveTime}
+          setEngineMoveTime={setEngineMoveTime}
           soundOn={soundOn}
           toggleSound={toggleSound}
           soundPack={soundPack}

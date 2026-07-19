@@ -24,6 +24,9 @@ export default function SettingsModal({
   clockTime, setClockTime,
   clockEnabled, toggleClock,
   useWasm, setUseWasm,
+  engineThreads, setEngineThreads,
+  engineHash, setEngineHash,
+  engineMoveTime, setEngineMoveTime,
   onClose
 }) {
   return (
@@ -129,6 +132,39 @@ export default function SettingsModal({
             <div className="dasher-row">
               <button className={'dasher-btn' + (useWasm ? '' : ' active')} onClick={function() { setUseWasm(false); }} style={{ flex:1 }}>Server</button>
               <button className={'dasher-btn' + (useWasm ? ' active' : '')} onClick={function() { setUseWasm(true); }} style={{ flex:1 }}>Local WASM</button>
+            </div>
+          </div>
+
+          {/* Engine Threads */}
+          <div className="dasher-group">
+            <div className="dasher-label">Engine Threads</div>
+            <div className="dasher-slider-row">
+              <input type="range" min="1" max="16" value={engineThreads}
+                onChange={function(e) { setEngineThreads(parseInt(e.target.value)); }}
+                className="dasher-slider" />
+              <span className="dasher-value">{engineThreads}</span>
+            </div>
+          </div>
+
+          {/* Engine Hash */}
+          <div className="dasher-group">
+            <div className="dasher-label">Hash (MB)</div>
+            <div className="dasher-slider-row">
+              <input type="range" min="16" max="1024" step="16" value={engineHash}
+                onChange={function(e) { setEngineHash(parseInt(e.target.value)); }}
+                className="dasher-slider" />
+              <span className="dasher-value">{engineHash} MB</span>
+            </div>
+          </div>
+
+          {/* Engine Move Time */}
+          <div className="dasher-group">
+            <div className="dasher-label">Move Time (ms)</div>
+            <div className="dasher-slider-row">
+              <input type="range" min="100" max="30000" step="100" value={engineMoveTime}
+                onChange={function(e) { setEngineMoveTime(parseInt(e.target.value)); }}
+                className="dasher-slider" />
+              <span className="dasher-value">{engineMoveTime}ms</span>
             </div>
           </div>
 

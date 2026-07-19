@@ -90,7 +90,7 @@
 - [ ] **Blindfold Mode** — Hide pieces, show only dots
 - [ ] **Voice Input** — Speak moves aloud (Web Speech API)
 - [ ] **High Contrast Mode** — Accessibility theme
-- [ ] **Engine Tuning** — Threads/hash/movetime sliders
+- [x] **Engine Tuning** — Threads/hash/movetime sliders with localStorage persistence
 - [ ] **Import PGN Annotations** — NAGs, clock times, variations
 
 ### 🔲 Low Priority / Future
@@ -105,7 +105,7 @@
 
 ### 📊 Stats
 - **Total Features:** 91
-- **Fully Working:** 67 (74%)
+- **Fully Working:** 68 (75%)
 - **High Priority:** 0
-- **Medium Priority:** 23
+- **Medium Priority:** 22
 - **Low Priority / Future:** 12

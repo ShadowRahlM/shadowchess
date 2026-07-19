@@ -1,0 +1,59 @@
+{
+  "name": "ShadowChess Game Database",
+  "games": [
+    {
+      "id": 1,
+      "name": "The Immortal Game",
+      "players": ["Adolf Anderssen", "Lionel Kieseritzky"],
+      "year": 1851,
+      "result": "1-0",
+      "opening": "King's Gambit",
+      "pgn": "[Event \"London\"]\n[Site \"London\"]\n[Date \"1851.??.??\"]\n[Round \"?\"]\n[White \"Adolf Anderssen\"]\n[Black \"Lionel Kieseritzky\"]\n[Result \"1-0\"]\n\n1. e4 e5 2. f4 exf4 3. Bc4 Qh4+ 4. Kf1 b5 5. Bxb5 Nf6 6. Nf3 Qh6 7. d3 Nh5 8. Nh4 Qg5 9. Nf5 c6 10. g4 Nf6 11. Rg1 cxb5 12. h4 Qg6 13. h5 Qg5 14. Qf3 Ng8 15. Bxf4 Qf6 16. Nc3 Bc5 17. Nd5 Qxb2 18. Bd6 Bxg1 19. e5 Qxa1+ 20. Ke2 Na6 21. Nxg7+ Kd8 22. Qf6+ Nxf6 23. Be7# 1-0"
+    },
+    {
+      "id": 2,
+      "name": "The Opera Game",
+      "players": ["Paul Morphy", "Duke of Brunswick / Count Isouard"],
+      "year": 1858,
+      "result": "1-0",
+      "opening": "Philidor Defense",
+      "pgn": "[Event \"Paris Opera\"]\n[Site \"Paris\"]\n[Date \"1858.??.??\"]\n[Round \"?\"]\n[White \"Paul Morphy\"]\n[Black \"Duke of Brunswick\"]\n[Result \"1-0\"]\n\n1. e4 e5 2. Nf3 d6 3. d4 Bg4 4. dxe5 Bxf3 5. Qxf3 dxe5 6. Bc4 Nf6 7. Qb3 Qe7 8. Nc3 c6 9. Bg5 b5 10. Nxb5 cxb5 11. Bxb5+ Nbd7 12. O-O-O Rd8 13. Rxd7 Rxd7 14. Rd1 Qe6 15. Bxd7+ Nxd7 16. Qb8+ Nxb8 17. Rd8# 1-0"
+    },
+    {
+      "id": 3,
+      "name": "Kasparov vs Topalov (Kasparov's Pearl)",
+      "players": ["Garry Kasparov", "Veselin Topalov"],
+      "year": 1999,
+      "result": "1-0",
+      "opening": "Pirc Defense",
+      "pgn": "[Event \"Wijk aan Zee\"]\n[Site \"Wijk aan Zee\"]\n[Date \"1999.01.20\"]\n[Round \"4\"]\n[White \"Garry Kasparov\"]\n[Black \"Veselin Topalov\"]\n[Result \"1-0\"]\n\n1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Be3 Bg7 5. Qd2 c6 6. f3 b5 7. Nge2 Nbd7 8. Bh6 Bxh6 9. Qxh6 Bb7 10. a3 e5 11. O-O-O Qe7 12. Kb1 a6 13. Nc1 O-O-O 14. Nb3 exd4 15. Rxd4 c5 16. Rd1 Nb6 17. g3 Kb8 18. Na5 Ba8 19. Bh3 d5 20. Qf4+ Ka7 21. Rhe1 d4 22. Nd5 Nbxd5 23. exd5 Qd6 24. Rxd4 cxd4 25. Re7+ Kb6 26. Qxd4+ Kxa5 27. b4+ Ka4 28. Qc3 Qxd5 29. Ra7 Bb7 30. Rxb7 Qc4 31. Qxf6 Kxa3 32. Qxa6+ Kxb4 33. c3+ Kxc3 34. Qa1+ Kd2 35. Qb2+ Kd1 36. Bf1 Rd2 37. Rd7 Rxd7 38. Bxc4 bxc4 39. Qxh8 Rd3 40. Qa8 c3 41. Qa4+ Ke1 42. f4 f5 43. Kc1 Rd2 44. Qa7 1-0"
+    },
+    {
+      "id": 4,
+      "name": "Deep Blue vs Kasparov (Game 6)",
+      "players": ["Deep Blue", "Garry Kasparov"],
+      "year": 1997,
+      "result": "1-0",
+      "opening": "Caro-Kann Defense",
+      "pgn": "[Event \"IBM Man-Machine, New York\"]\n[Site \"New York\"]\n[Date \"1997.05.11\"]\n[Round \"6\"]\n[White \"Deep Blue\"]\n[Black \"Garry Kasparov\"]\n[Result \"1-0\"]\n\n1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Nd7 5. Ng5 Ngf6 6. Bd3 e6 7. N1f3 h6 8. Nxe6 Qe7 9. O-O fxe6 10. Bg6+ Kd8 11. Bf4 b5 12. a4 Bb7 13. Re1 Nd5 14. Bg3 Kc8 15. axb5 cxb5 16. Qd3 Bc6 17. Bf5 exf5 18. Rxe7 Bxe7 19. c4 1-0"
+    },
+    {
+      "id": 5,
+      "name": "Karpov vs Kasparov (Game 16, World Championship 1985)",
+      "players": ["Anatoly Karpov", "Garry Kasparov"],
+      "year": 1985,
+      "result": "0-1",
+      "opening": "Sicilian Defense",
+      "pgn": "[Event \"World Championship Match\"]\n[Site \"Moscow\"]\n[Date \"1985.10.15\"]\n[Round \"16\"]\n[White \"Anatoly Karpov\"]\n[Black \"Garry Kasparov\"]\n[Result \"0-1\"]\n\n1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nc6 5. Nb5 d6 6. c4 Nf6 7. N1c3 a6 8. Na3 d5 9. cxd5 exd5 10. exd5 Nb4 11. Be2 Bc5 12. O-O O-O 13. Bf3 Bf5 14. Bg5 Re8 15. Qd2 b5 16. Rad1 Nd3 17. Nab1 h6 18. Bh4 b4 19. Na4 Bd6 20. Bg3 Rc8 21. b3 g5 22. Bxd6 Qxd6 23. g3 Nd7 24. Bg2 Qf6 25. a3 a5 26. axb4 axb4 27. Qa2 Bg6 28. d6 g4 29. Qd2 Kg7 30. f3 Qxd6 31. fxg4 Qd4+ 32. Kh1 Nf6 33. Rf4 Ne4 34. Qxd3 Nf2+ 35. Rxf2 Bxd3 36. Rfd2 Qe3 37. Rxd3 Rc1 38. Nb2 Qf2 39. Nd2 Rxd1+ 40. Nxd1 Re1+ 0-1"
+    },
+    {
+      "id": 6,
+      "name": "Fischer vs Spassky (Game 6, World Championship 1972)",
+      "players": ["Bobby Fischer", "Boris Spassky"],
+      "year": 1972,
+      "result": "1-0",
+      "opening": "Queen's Gambit Declined",
+      "pgn": "[Event \"World Championship Match\"]\n[Site \"Reykjavik\"]\n[Date \"1972.07.23\"]\n[Round \"6\"]\n[White \"Robert James Fischer\"]\n[Black \"Boris Spassky\"]\n[Result \"1-0\"]\n\n1. c4 e6 2. Nf3 d5 3. d4 Nf6 4. Nc3 Be7 5. Bg5 O-O 6. e3 h6 7. Bh4 b6 8. cxd5 Nxd5 9. Bxe7 Qxe7 10. Nxd5 exd5 11. Rc1 Be6 12. Qa4 c5 13. Qa3 Rc8 14. Bb5 a6 15. dxc5 bxc5 16. O-O Ra7 17. Be2 Nd7 18. Nd4 Qf8 19. Nxe6 fxe6 20. e4 d4 21. f4 Qe7 22. e5 Rb8 23. Bc4 Kh8 24. Qh3 Nf8 25. b3 a5 26. f5 exf5 27. Rxf5 Nh7 28. Rcf1 Qd8 29. Qg3 Re7 30. h4 Rbb7 31. e6 Rbc7 32. Qe5 Qe8 33. a4 Qd8 34. R1f2 Qe8 35. R2f3 Qd8 36. Bd3 Qe8 37. Qe4 Nf6 38. Rxf6 gxf6 39. Rxf6 Kg8 40. Bc4 Kh8 41. Qf4 1-0"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+.clock-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px;
+  background: var(--bg-box);
+  border-radius: 4px;
+  min-width: 80px;
+  border: 2px solid transparent;
+  transition: all 0.15s;
+}
+
+.clock-container.active {
+  border-color: var(--c-accent);
+  background: var(--bg-hover);
+}
+
+.clock-container.low .clock-time {
+  color: #f1c40f;
+}
+
+.clock-container.critical .clock-time {
+  color: #e74c3c;
+  animation: clockPulse 1s infinite;
+}
+
+@keyframes clockPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.clock-time {
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-font);
+  letter-spacing: 1px;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "shadowchess-server",
+  "version": "1.0.0",
+  "description": "WebSocket proxy for ShadowEngine chess engine",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ws": "^8.18.0"
+  }
+}

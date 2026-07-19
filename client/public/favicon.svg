@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7b2fbe"/>
+      <stop offset="50%" stop-color="#2d1050"/>
+      <stop offset="100%" stop-color="#0a0012"/>
+    </radialGradient>
+    <radialGradient id="eye-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Shadow body - hooded figure -->
+  <path d="M32 8 C18 8, 8 20, 8 35 C8 48, 16 56, 32 58 C48 56, 56 48, 56 35 C56 20, 46 8, 32 8Z" fill="url(#shadow)"/>
+  
+  <!-- Inner shadow flame -->
+  <path d="M32 14 C22 14, 14 23, 14 34 C14 44, 20 50, 32 52 C44 50, 50 44, 50 34 C50 23, 42 14, 32 14Z" fill="#1a0a2e" opacity="0.8"/>
+  
+  <!-- Shadow wisps -->
+  <path d="M20 42 Q16 48, 12 52 Q18 50, 22 44Z" fill="#3b1570" opacity="0.6"/>
+  <path d="M44 42 Q48 48, 52 52 Q46 50, 42 44Z" fill="#3b1570" opacity="0.6"/>
+  <path d="M32 50 Q28 56, 24 60 Q32 58, 36 60 Q32 56, 32 50Z" fill="#2d0a4e" opacity="0.5"/>
+  
+  <!-- Left eye - glowing purple -->
+  <ellipse cx="24" cy="30" rx="4" ry="3" fill="url(#eye-glow)" filter="url(#glow)"/>
+  <ellipse cx="24" cy="30" rx="2" ry="1.5" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Right eye - glowing purple -->
+  <ellipse cx="40" cy="30" rx="4" ry="3" fill="url(#eye-glow)" filter="url(#glow)"/>
+  <ellipse cx="40" cy="30" rx="2" ry="1.5" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Crown/horn marks -->
+  <path d="M26 14 L24 6 L28 12Z" fill="#5b21b6" opacity="0.7"/>
+  <path d="M32 12 L32 2 L34 10Z" fill="#6d28d9" opacity="0.8"/>
+  <path d="M38 14 L40 6 L36 12Z" fill="#5b21b6" opacity="0.7"/>
+</svg>

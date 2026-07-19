@@ -1,0 +1,111 @@
+# ShadowChess Feature Parity Checklist
+## vs Lichess
+
+### ✅ Fully Working (60)
+- [x] **Puzzle Mode** — Tactical puzzles with rating tracking, streak counter, solution display
+- [x] **Local Stockfish WASM** — In-browser engine via stockfish.js Web Worker; toggle in settings
+- [x] **Infinite Analysis** — Engine auto-restarts after bestmove; navigation follows history positions
+- [x] **Engine WDL** — Win/draw/loss percentages on eval bar from engine analysis
+- [x] **Endgame Tablebase** — Syzygy API (≤7 pieces), eval bar badge, side panel with DTM
+- [x] **Multi-PV Analysis** — Side panel shows up to 5 engine lines with score + PV; slider in settings modal
+- [x] **Chess Board** — 8x8 grid
+- [x] **Piece Rendering** — 4 SVG piece sets (cburnett, merida, alpha, chess7)
+- [x] **Click-to-Move** — Click piece then click destination
+- [x] **Drag-and-Drop** — Drag pieces to move
+- [x] **Legal Move Validation** — chess.js validates all moves
+- [x] **Last Move Highlight** — Green squares
+- [x] **Selected Square Highlight** — Yellow
+- [x] **Legal Move Indicators** — Dots (empty), rings (captures)
+- [x] **Check Highlighting** — Red radial gradient on king
+- [x] **Square Highlighting** — Right-click toggles gold highlight (analysis)
+- [x] **Arrow Drawing** — Ctrl+click start → ctrl+click end draws blue arrow
+- [x] **Blunder Arrow** — Auto red arrow when eval drops >150cp
+- [x] **Clear Highlights/Arrows** — Right-click empty area
+- [x] **Move List** — Algebraic notation, numbered pairs
+- [x] **Move Classification** — ★ Best / Good / Inaccuracy / Mistake / Blunder
+- [x] **Eval Bar** — Vertical gauge (centipawns)
+- [x] **Eval Graph** — Canvas chart: score vs move number
+- [x] **Engine Analysis** — ShadowEngine (Stockfish) via WebSocket
+- [x] **Engine Info** — Depth, NPS, PV
+- [x] **Game Over Detection** — Checkmate, stalemate, draw, repetition, insufficient
+- [x] **New Game** — Reset board
+- [x] **Undo / Redo** — Take back / replay moves
+- [x] **Flip Board** — Rotate 180°
+- [x] **Switch Sides** — Play white or black
+- [x] **Sound Effects** — 3 packs: Standard, Piano, Synthetic
+- [x] **Sound Settings** — On/off, volume, pack selector (in settings panel)
+- [x] **Engine Settings** — Depth slider 1-25 (in settings panel)
+- [x] **Resign / Draw** — Resign game, offer/accept draw
+- [x] **Auto-Analyze** — Post-game analysis on game over + auto-start on game load
+- [x] **Opening Explorer** — Tree view with drill-down, breadcrumb back nav, click-to-drill (no board play), "Play on board" button
+- [x] **Opening Explorer WDL Stats** — Live win/draw/loss % from Lichess API per move with green/yellow/red bar, tooltip with counts + avg rating
+- [x] **Opening Name** — Detected from 94-entry opening database
+- [x] **Board Themes** — 6 colors (Brown/Blue/Green/Purple/Red/Dark)
+- [x] **Board Size/Zoom** — Slider 60-120%
+- [x] **Piece Sets** — 4 sets in settings panel
+- [x] **Coordinates** — Inside/Outside/Hidden toggle
+- [x] **Background Theme** — Light/Dark/System
+- [x] **Animation Duration** — 0-500ms slider
+- [x] **Settings Modal** — Full dasher-style preferences (gear icon)
+- [x] **Clock** — On/off, time presets (1m/3m/5m/10m/20m)
+- [x] **Analysis Navigation** — Click move in list, ← → Home End keys, nav buttons
+- [x] **Keyboard Shortcuts** — Press `?` for panel
+- [x] **PGN Export** — Copy to clipboard
+- [x] **PGN Import** — Paste PGN to load game
+- [x] **FEN Copy** — Copy position FEN to clipboard (F button)
+- [x] **FEN Import** — Paste FEN to load position (+F button)
+- [x] **Board Editor** — Click pieces from palette to place, right-click removes, Play from Here
+- [x] **Famous Games** — 6 classic games (via Game Database modal)
+- [x] **Opening Browser** — 94 openings with expandable tree (via Game Database modal)
+- [x] **Pre-Moves** — Queue moves during engine's turn
+- [x] **Game Over Modal** — Result popup with Analyze / New Game
+- [x] **Move Animation** — Scale bounce on piece move
+- [x] **Opening Explorer Drill-Down** — Click moves to navigate tree without affecting board; breadcrumb path; ◀ back; "Play" to push path to board
+- [x] **Analysis Auto-Start on Load** — Engine analysis starts automatically when loading games/PGNs
+- [x] **Opening Explorer: Avg Rating, Example Games, Source Tabs** — Lichess/Masters/Player tabs, avg rating display, recent games list
+- [x] **Tablebase ≤7 Pieces** — Syzygy limit set to >7 instead of >6
+- [x] **Tablebase Category Subtypes** — cursed-win / blessed-loss labels with gold styling
+- [x] **Tablebase Mainline Display** — 1.5-move best-play sequence with clickable SANs
+
+### 🔲 Medium Priority
+- [ ] **Mobile Layout** — Responsive for phones/tablets
+- [ ] **PWA Support** — Installable app with service worker
+- [ ] **Game History** — Save/load past games (localStorage)
+- [ ] **Download PGN** — Save game as .pgn file
+- [ ] **Share Link** — Copy shareable game URL
+- [ ] **Puzzle Storm** — Timed puzzle rush
+- [ ] **Puzzle Streak** — Solve until first mistake
+- [ ] **Learn from Mistakes** — Auto-generated lesson from blunders
+- [ ] **Practice Positions** — Endgame drills, checkmate patterns
+- [ ] **Coordinate Trainer** — Identify squares by name
+- [ ] **Chess Basics** — Interactive lessons (piece movement, rules)
+- [ ] **Studies** — Multi-chapter analyzable documents
+- [ ] **Zen Mode** — Hide eval bar/score during play
+- [ ] **Auto-Flip** — Automatically flip board after each move
+- [ ] **Highlight Toggles** — Show/hide last move, legal moves, check
+- [ ] **Move Confirmation** — Double-click to confirm moves
+- [ ] **Drag Sensitivity** — Toggle drag vs click preference
+- [ ] **Auto-Queen** — Always promote to queen (skip dialog)
+- [ ] **Custom Backgrounds** — Upload custom images
+- [ ] **Blindfold Mode** — Hide pieces, show only dots
+- [ ] **Voice Input** — Speak moves aloud (Web Speech API)
+- [ ] **High Contrast Mode** — Accessibility theme
+- [ ] **Engine Tuning** — Threads/hash/movetime sliders
+- [ ] **Import PGN Annotations** — NAGs, clock times, variations
+
+### 🔲 Low Priority / Future
+- [ ] Chess variants, correspondence, bots, puzzle storm/streak/racer
+- [ ] GIF replay, rating system, tournaments, simuls, studies
+- [ ] Broadcasts, streamer mode, team system, forum/blog, chat
+- [ ] Friends, profiles, leaderboards, game search, anti-cheat, API
+- [ ] 8-piece tablebase
+- [ ] Popularity history graph
+- [ ] Server-side rendering
+- [ ] Database persistence
+
+### 📊 Stats
+- **Total Features:** 91
+- **Fully Working:** 67 (74%)
+- **High Priority:** 0
+- **Medium Priority:** 23
+- **Low Priority / Future:** 12
